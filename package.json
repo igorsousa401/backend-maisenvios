@@ -1,0 +1,19 @@
+{
+  "name": "backend-maisenvios",
+  "version": "1.0.0",
+  "description": "## Escopo do Teste O objetivo do teste será construir uma API REST.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "lodash": "^4.17.21",
+    "nodemon": "^2.0.22",
+    "xlsx": "^0.18.5"
+  }
+}
