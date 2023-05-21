@@ -58,7 +58,7 @@ app.delete('/etiquetas/:index', (req, res) => {
         return xlsx.utils.encode_cell({ r: r, c: c });
     }
 
-    if(3 < req.params.index && req.params.index <= rows.length + 1) {
+    if(3 <= req.params.index && req.params.index <= rows.length + 1) {
         var decode = xlsx.utils.decode_range(ws["!ref"])
         for (var reqI = req.params.index; reqI < decode.e.r; ++reqI) {
             for (var C = decode.s.c; C <= decode.e.c; ++C) {
@@ -95,7 +95,7 @@ app.put('/etiquetas/:index', (req, res) => {
     const ws = wb.Sheets["Plan1"];
     const rows = xlsx.utils.sheet_to_json(ws);
 
-    if(3 < req.params.index && req.params.index <= rows.length + 1) {
+    if(3 <= req.params.index && req.params.index <= rows.length + 1) {
         for(var reqI = 4; reqI < rows.length + 3; reqI++) {
             if(req.params.index == reqI) {
                 const tag = req.query.tag != null ? req.query.tag : ws[`A${reqI}`].v;
