@@ -1,3 +1,10 @@
+/*
+*** Executando o Projeto
+* Rode o comando "npm install".
+* Rode o comando "npm start".
+* Prontinho, agora é só testar a API. :)
+*/
+
 const xlsx = require('xlsx');
 const express = require('express');
 const _ = require('lodash');
