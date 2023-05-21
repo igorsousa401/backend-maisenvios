@@ -4,17 +4,15 @@ const _ = require('lodash');
 const app = express();
 const port = 2000;
 
-app.get('/', (req, res) => {
+//Rota que retona todos os registros que estão na planilha
+app.get('/etiquetas', (req, res) => {
     const wb = xlsx.readFile(file);
     const ws = wb.Sheets["Plan1"];
     const rows = xlsx.utils.sheet_to_json(ws);
 
-    const spec = {};
-    const _u = _.noConflict();
-
     let data = [];
 
-    for(let index = 4; index < 10; index++) {
+    for(let index = 4; index < rows.length + 3; index++) {
         const tag = ws[`A${index}`].v;
         const name = ws[`B${index}`].v;
         const status = ws[`C${index}`].v;
@@ -30,6 +28,15 @@ app.get('/', (req, res) => {
         data.push(row);
     }
     data = JSON.parse(JSON.stringify(data))
+    res.send(data);
+
+});
+
+//Rota que retona todos os registros que estão na planilha
+app.delete('/etiquetas/:tag', (req, res) => {
+    const wb = xlsx.readFile(file);
+    const ws = wb.Sheets["Plan1"];
+    const rows = xlsx.utils.sheet_to_json(ws);
     res.send(data);
 
 });
